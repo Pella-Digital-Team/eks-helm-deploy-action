@@ -5,7 +5,7 @@ ARG KUBECTL_VERSION=1.34.1
 RUN apt -y update && apt -y install curl \
     && pip install awscli \
     && curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash \
-    && curl -fLO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
+    && curl -fLO https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
 
 COPY deploy.sh /usr/local/bin/deploy
